@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent" android:layout_height="fill_parent" android:orientation="horizontal">
+
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:id="@+id/namebox" android:layout_alignParentLeft="true">
+        <TextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="14dp"
+                android:padding="3dp"/>
+
+        <EditText
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/combatantNameField"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:padding="6dp"
+                android:inputType="textNoSuggestions"
+                android:hint="Name"/>
+
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:id="@+id/acbox" android:layout_toRightOf="@id/namebox">
+        <TextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="AC"
+                android:textSize="14dp"
+                android:padding="3dp"/>
+
+        <EditText
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/acField"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:padding="6dp"
+                android:inputType="number"
+                android:hint="AC"/>
+    </LinearLayout>
+
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"  android:id="@+id/fortbox" android:layout_toRightOf="@id/acbox">
+        <TextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Fort"
+                android:textSize="14dp"
+                android:padding="3dp"/>
+
+        <EditText
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/fortField"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:padding="6dp"
+                android:inputType="number"
+                android:hint="Fort"/>
+    </LinearLayout>
+
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:id="@+id/refbox" android:layout_toRightOf="@id/fortbox">
+        <TextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Ref"
+                android:textSize="14dp"
+                android:padding="3dp"/>
+
+        <EditText
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/reflexField"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:padding="6dp"
+                android:inputType="number"
+                android:hint="Ref"/>
+    </LinearLayout>
+
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:id="@+id/willbox" android:layout_toRightOf="@id/refbox">
+        <TextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Will"
+                android:textSize="14dp"
+                android:padding="3dp"/>
+
+        <EditText
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/willField"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:padding="6dp"
+                android:inputType="number"
+                android:hint="Will"/>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:id="@+id/hpbox"  android:layout_alignParentRight="true">
+        <TextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HP"
+                android:textSize="14dp"
+                android:padding="3dp"/>
+
+        <EditText
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/willField"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:padding="6dp"
+                android:inputType="number"
+                android:hint="HP"/>
+    </LinearLayout>
+
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:id="@+id/maxhpbox" android:layout_toLeftOf="@id/hpbox">
+        <TextView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Max HP"
+                android:textSize="14dp"
+                android:padding="3dp"/>
+
+        <EditText
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/willField"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:padding="6dp"
+                android:inputType="number"
+                android:hint="Max"/>
+    </LinearLayout>
+
+</RelativeLayout>

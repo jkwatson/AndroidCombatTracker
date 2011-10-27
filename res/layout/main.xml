@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingLeft="8dp"
+              android:paddingRight="8dp">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  style="@android:style/ButtonBar">
+        <Button android:text="Add Combatant" android:id="@+id/addCombatantButton"
+                android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+        <Button android:text="Next Initiative" android:id="@+id/nextInitiativeButton"
+                android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+    </LinearLayout>
+    <ScrollView android:id="@+id/combatantsScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawSelectorOnTop="false">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                android:id="@+id/combatantsListLayout"
+                android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
