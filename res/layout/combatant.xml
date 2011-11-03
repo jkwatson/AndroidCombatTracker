@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent" android:layout_height="fill_parent" android:orientation="horizontal">
+                android:layout_width="match_parent" android:layout_height="fill_parent"
+                android:orientation="horizontal">
 
     <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
                   android:layout_height="wrap_content" android:id="@+id/namebox" android:layout_alignParentLeft="true">
@@ -46,7 +47,7 @@
     </LinearLayout>
 
     <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"  android:id="@+id/fortbox" android:layout_toRightOf="@id/acbox">
+                  android:layout_height="wrap_content" android:id="@+id/fortbox" android:layout_toRightOf="@id/acbox">
         <TextView
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
@@ -107,8 +108,9 @@
                 android:inputType="number"
                 android:hint="Will"/>
     </LinearLayout>
-    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:id="@+id/hpbox"  android:layout_alignParentRight="true">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/hpbox" android:layout_alignParentRight="true">
         <TextView
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
@@ -119,7 +121,7 @@
 
         <EditText
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/willField"
+                android:id="@+id/hpField"
                 android:layout_width="55dp"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
@@ -128,7 +130,8 @@
                 android:hint="HP"/>
     </LinearLayout>
 
-    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
                   android:id="@+id/maxhpbox" android:layout_toLeftOf="@id/hpbox">
         <TextView
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -140,7 +143,7 @@
 
         <EditText
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/willField"
+                android:id="@+id/maxHpField"
                 android:layout_width="55dp"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"

@@ -2,7 +2,6 @@ package com.sleazyweasel.data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ObjectRoot implements Serializable{
@@ -14,5 +13,12 @@ public class ObjectRoot implements Serializable{
 
     public List<Combatant> getCombatants() {
         return new ArrayList<Combatant>(combatants);
+    }
+
+    public void nextInitiative() {
+        if (combatants.size() > 0) {
+            Combatant combatant = combatants.remove(0);
+            combatants.add(combatant);
+        }
     }
 }

@@ -57,28 +57,19 @@ public class MyActivity extends Activity {
 
         final LinearLayout list = (LinearLayout) findViewById(R.id.combatantsListLayout);
 
-        Button addCombatantButton = (Button) findViewById(R.id.addCombatantButton);
-        addCombatantButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                final Combatant newCombatant = new Combatant("", 3, 4, 5, 6, 7, 7);
-                root.addCombatant(newCombatant);
-                addCombatantToList(newCombatant, list);
-            }
-        });
+        initAddCombatantButton(list);
+        initNextInitiativeButton(list);
 
+        initData(savedInstanceState);
 
-        Button nextInitiativeButton = (Button) findViewById(R.id.nextInitiativeButton);
-        nextInitiativeButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                view.requestFocus();
-                if (list.getChildCount() > 0) {
-                    View first = list.getChildAt(0);
-                    list.removeView(first);
-                    list.addView(first);
-                }
-            }
-        });
+        List<Combatant> combatants = root.getCombatants();
+        for (Combatant combatant : combatants) {
+            addCombatantToList(combatant, list);
+        }
 
+    }
+
+    private void initData(Bundle savedInstanceState) {
         String xml = null;
         if (savedInstanceState != null) {
             xml = savedInstanceState.getString(COMBATANTS_BUNDLE_KEY);
@@ -94,12 +85,32 @@ public class MyActivity extends Activity {
                 root = new ObjectRoot();
             }
         }
+    }
 
-        List<Combatant> combatants = root.getCombatants();
-        for (Combatant combatant : combatants) {
-            addCombatantToList(combatant, list);
-        }
+    private void initAddCombatantButton(final LinearLayout list) {
+        Button addCombatantButton = (Button) findViewById(R.id.addCombatantButton);
+        addCombatantButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                final Combatant newCombatant = new Combatant("", 3, 4, 5, 6, 7, 7);
+                root.addCombatant(newCombatant);
+                addCombatantToList(newCombatant, list);
+            }
+        });
+    }
 
+    private void initNextInitiativeButton(final LinearLayout list) {
+        Button nextInitiativeButton = (Button) findViewById(R.id.nextInitiativeButton);
+        nextInitiativeButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                view.requestFocus();
+                if (list.getChildCount() > 0) {
+                    View first = list.getChildAt(0);
+                    list.removeView(first);
+                    list.addView(first);
+                    root.nextInitiative();
+                }
+            }
+        });
     }
 
     @Override
@@ -109,16 +120,97 @@ public class MyActivity extends Activity {
         int i = 0;
         for (final Combatant combatant : root.getCombatants()) {
             View v = list.getChildAt(i++);
-            EditText combatantNameTextField = (EditText) v.findViewById(R.id.combatantNameField);
-            combatantNameTextField.setText(combatant.getName());
-
-            combatantNameTextField.addTextChangedListener(new TextAdapter() {
-                public void afterTextChanged(Editable editable) {
-                    combatant.setName(editable.toString());
-                }
-            });
+            initializeViewForCombatant(combatant, v);
 //
         }
+    }
+
+    private void initializeViewForCombatant(final Combatant combatant, View v) {
+        initCombatantNameField(combatant, v);
+        initAcField(combatant, v);
+        initFortField(combatant, v);
+        initRefField(combatant, v);
+        initWillField(combatant, v);
+        initHpField(combatant, v);
+        initMaxHpField(combatant, v);
+    }
+
+    private void initAcField(final Combatant combatant, View v) {
+        EditText acField = (EditText) v.findViewById(R.id.acField);
+        acField.setText(convertToString(combatant.getArmorClass()));
+        acField.addTextChangedListener(new TextAdapter() {
+            public void afterTextChanged(Editable editable) {
+                combatant.setArmorClass(convertToInteger(editable.toString()));
+            }
+        });
+    }
+
+    private void initFortField(final Combatant combatant, View v) {
+        EditText fortField = (EditText) v.findViewById(R.id.fortField);
+        fortField.setText(convertToString(combatant.getFortitude()));
+        fortField.addTextChangedListener(new TextAdapter() {
+            public void afterTextChanged(Editable editable) {
+                combatant.setFortitude(convertToInteger(editable.toString()));
+            }
+        });
+    }
+
+    private void initRefField(final Combatant combatant, View v) {
+        EditText refField = (EditText) v.findViewById(R.id.reflexField);
+        refField.setText(convertToString(combatant.getReflex()));
+        refField.addTextChangedListener(new TextAdapter() {
+            public void afterTextChanged(Editable editable) {
+                combatant.setReflex(convertToInteger(editable.toString()));
+            }
+        });
+    }
+
+    private void initWillField(final Combatant combatant, View v) {
+        EditText willField = (EditText) v.findViewById(R.id.willField);
+        willField.setText(convertToString(combatant.getWill()));
+        willField.addTextChangedListener(new TextAdapter() {
+            public void afterTextChanged(Editable editable) {
+                combatant.setWill(convertToInteger(editable.toString()));
+            }
+        });
+    }
+
+    private void initMaxHpField(final Combatant combatant, View v) {
+        EditText maxAcField = (EditText) v.findViewById(R.id.maxHpField);
+        maxAcField.setText(convertToString(combatant.getMaxHp()));
+        maxAcField.addTextChangedListener(new TextAdapter() {
+            public void afterTextChanged(Editable editable) {
+                combatant.setMaxHp(convertToInteger(editable.toString()));
+            }
+        });
+    }
+
+    private void initHpField(final Combatant combatant, View v) {
+        EditText hpField = (EditText) v.findViewById(R.id.hpField);
+        hpField.setText(convertToString(combatant.getCurrentHp()));
+        hpField.addTextChangedListener(new TextAdapter() {
+            public void afterTextChanged(Editable editable) {
+                combatant.setCurrentHp(convertToInteger(editable.toString()));
+            }
+        });
+    }
+
+    private String convertToString(Integer intValue) {
+        return intValue != null ? String.valueOf(intValue) : null;
+    }
+
+    private Integer convertToInteger(String inputString) {
+        return inputString.length() > 0 ? Integer.valueOf(inputString) : null;
+    }
+
+    private void initCombatantNameField(final Combatant combatant, View v) {
+        EditText combatantNameTextField = (EditText) v.findViewById(R.id.combatantNameField);
+        combatantNameTextField.setText(combatant.getName());
+        combatantNameTextField.addTextChangedListener(new TextAdapter() {
+            public void afterTextChanged(Editable editable) {
+                combatant.setName(editable.toString());
+            }
+        });
     }
 
     private void addCombatantToList(final Combatant combatant, LinearLayout list) {

@@ -16,16 +16,18 @@ public final class R {
     public static final class id {
         public static final int acField=0x7f050003;
         public static final int acbox=0x7f050002;
-        public static final int addCombatantButton=0x7f05000c;
+        public static final int addCombatantButton=0x7f05000e;
         public static final int combatantNameField=0x7f050001;
-        public static final int combatantsListLayout=0x7f05000f;
-        public static final int combatantsScrollView=0x7f05000e;
+        public static final int combatantsListLayout=0x7f050011;
+        public static final int combatantsScrollView=0x7f050010;
         public static final int fortField=0x7f050005;
         public static final int fortbox=0x7f050004;
+        public static final int hpField=0x7f05000b;
         public static final int hpbox=0x7f05000a;
-        public static final int maxhpbox=0x7f05000b;
+        public static final int maxHpField=0x7f05000d;
+        public static final int maxhpbox=0x7f05000c;
         public static final int namebox=0x7f050000;
-        public static final int nextInitiativeButton=0x7f05000d;
+        public static final int nextInitiativeButton=0x7f05000f;
         public static final int refbox=0x7f050006;
         public static final int reflexField=0x7f050007;
         public static final int willField=0x7f050009;
